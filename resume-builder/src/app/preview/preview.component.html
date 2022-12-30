@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="container-left">
+        <h1>
+            {{profile.name}}
+        </h1>
+        <h3>
+            {{profile.role}}
+        </h3>
+    </div>
+    <div class="container-right contact-section">
+        <div>
+            <div>
+                Email: <b>{{profile.email}}</b>
+            </div>
+            <div>
+                Mobile: <b>{{profile.mobile}}</b>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="container-left">
+        <div class="section">
+            <div class="section-header">
+                <h2>SUMMARY</h2>
+            </div>
+            <ul class="list">
+                <li *ngFor="let summary of summaries">
+                    {{ summary }}
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <h2>EMPLOYMENT HISTORY</h2>
+            </div>
+            <div class="timeline" *ngFor="let item of employmentHistory">
+                <h2>
+                    {{ item.organization }}
+                    <span class="tiny-text">({{item.period}})</span>
+                </h2>
+                <h3>{{ item.role }}</h3>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <h2>EDUCATION</h2>
+            </div>
+            <div *ngFor="let item of academicHistory">
+                <h2>
+                    {{ item.degree }}
+                    <span class="tiny-text">({{item.period}})</span>
+                </h2>
+                <h3>{{ item.college }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container-right">
+        <div class="section">
+            <div class="section-header">
+                <h2>SKILLS</h2>
+            </div>
+            <ul class="chip-panel">
+                <li class="chip" *ngFor="let order of skills">
+                    {{ order }}
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <h2>AWARDS</h2>
+            </div>
+            <ul class="list">
+                <li *ngFor="let award of awards">
+                    <span [innerHtml]="award"></span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <h2>LANGUAGES</h2>
+            </div>
+            <ul class="list">
+                <li *ngFor="let language of languages">
+                    {{ language }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
