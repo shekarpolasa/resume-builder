@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PreviewComponent } from './preview.component';
-import { BrowserModule } from '@angular/platform-browser';
+import { MatIconModule } from '@angular/material/icon';
 import { PreviewRoutingModule } from './preview-routing.module';
 
 
@@ -12,7 +12,8 @@ import { PreviewRoutingModule } from './preview-routing.module';
   ],
   imports: [
     CommonModule,
-    PreviewRoutingModule
+    PreviewRoutingModule,
+    MatIconModule
   ]
 })
 export class PreviewModule { }

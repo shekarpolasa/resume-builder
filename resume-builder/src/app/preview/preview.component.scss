@@ -3,6 +3,17 @@ h2 {
     margin-bottom: -2px;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+mat-icon.icon {
+    font-size: 16px;
+    color: #555;
+    vertical-align: sub;
+}
+
 .section-header {
     border-bottom: 3px solid black;
 }
@@ -26,10 +37,16 @@ h2 {
 }
 
 .list {
+    list-style: disc;
     padding-left: 15px;
 }
 
-.chip-panel {
+.flat-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.chip-list {
     list-style: none;
     padding: 0;
 }
@@ -44,10 +61,39 @@ h2 {
 
 .tiny-text {
     font-size: 16px;
-    color: #888;
+    color: #555;
 }
 
 .contact-section {
     vertical-align: bottom;
+    padding-bottom: 20px;
+}
+
+
+/* The actual timeline (the vertical ruler) */
+.timeline-list {
+    position: relative;
+    padding-top: 10px;
+    padding-left: 15px;
+    margin: 0 auto;
+    list-style: square;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline-list::after {
+    content: '';
+    position: absolute;
+    top: 27px;
+    bottom: 0;
+    left: 4px;
+
+    background-color: #9c9c9c;
+    width: 2px;
+    height: 70%;
+    position: absolute;
+    list-style-type: disc;
+}
+
+.pb-20 {
     padding-bottom: 20px;
 }

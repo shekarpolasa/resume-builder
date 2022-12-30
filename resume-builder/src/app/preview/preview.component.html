@@ -3,17 +3,17 @@
         <h1>
             {{profile.name}}
         </h1>
-        <h3>
+        <h3 class="tiny-text">
             {{profile.role}}
         </h3>
     </div>
     <div class="container-right contact-section">
         <div>
             <div>
-                Email: <b>{{profile.email}}</b>
+                <mat-icon class="icon">email</mat-icon> <a href="mailto:{{profile.email}}">{{profile.email}}</a>
             </div>
             <div>
-                Mobile: <b>{{profile.mobile}}</b>
+                <mat-icon class="icon">phone</mat-icon><a href="tel:{{profile.mobile}}">{{profile.mobile}}</a>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
                 <h2>SUMMARY</h2>
             </div>
             <ul class="list">
-                <li *ngFor="let summary of summaries">
+                <li *ngFor="let summary of profile.summaries">
                     {{ summary }}
                 </li>
             </ul>
@@ -36,36 +36,63 @@
             <div class="section-header">
                 <h2>EMPLOYMENT HISTORY</h2>
             </div>
-            <div class="timeline" *ngFor="let item of employmentHistory">
-                <h2>
-                    {{ item.organization }}
-                    <span class="tiny-text">({{item.period}})</span>
-                </h2>
-                <h3>{{ item.role }}</h3>
-            </div>
+            <ul class="timeline-list">
+                <li *ngFor="let item of profile.employmentHistory">
+                    <div class="timeline-item-content">
+                        <h2>
+                            {{ item.organization }}
+                            <span class="tiny-text">({{item.period}})</span>
+                        </h2>
+                        <h3>{{ item.role }}</h3>
+                    </div>
+                </li>
+            </ul>
         </div>
 
         <div class="section">
             <div class="section-header">
                 <h2>EDUCATION</h2>
             </div>
-            <div *ngFor="let item of academicHistory">
-                <h2>
-                    {{ item.degree }}
-                    <span class="tiny-text">({{item.period}})</span>
-                </h2>
-                <h3>{{ item.college }}</h3>
-            </div>
+            <ul class="timeline-list">
+                <li *ngFor="let item of profile.academicHistory">
+                    <div class="timeline-item-content">
+                        <h2>
+                            {{ item.degree }}
+                            <span class="tiny-text">({{item.period}})</span>
+                        </h2>
+                        <h3>{{ item.college }}</h3>
+                    </div>
+                </li>
+            </ul>
         </div>
+
+        <!-- <div class="section">
+            <div class="section-header">
+                <h2>PROJECTS</h2>
+            </div>
+            <ul class="list">
+                <li *ngFor="let project of profile.projects">
+                    <h2>
+                        {{ project.name }}
+                        <span class="tiny-text">({{project.role}})</span>
+                    </h2>
+                    <ul class="list">
+                        <li *ngFor="let item of project.details">
+                            {{item}}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div> -->
     </div>
     <div class="container-right">
         <div class="section">
             <div class="section-header">
                 <h2>SKILLS</h2>
             </div>
-            <ul class="chip-panel">
-                <li class="chip" *ngFor="let order of skills">
-                    {{ order }}
+            <ul class="chip-list">
+                <li class="chip" *ngFor="let skill of profile.skills">
+                    {{ skill }}
                 </li>
             </ul>
         </div>
@@ -75,7 +102,7 @@
                 <h2>AWARDS</h2>
             </div>
             <ul class="list">
-                <li *ngFor="let award of awards">
+                <li *ngFor="let award of profile.awards">
                     <span [innerHtml]="award"></span>
                 </li>
             </ul>
@@ -86,10 +113,41 @@
                 <h2>LANGUAGES</h2>
             </div>
             <ul class="list">
-                <li *ngFor="let language of languages">
+                <li *ngFor="let language of profile.languages">
                     {{ language }}
                 </li>
             </ul>
         </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+        <div class="section-header">
+            <h2>PROJECTS</h2>
+        </div>
+        <ul class="flat-list">
+            <li class="pb-20" *ngFor="let project of profile.projects">
+                <div class="container-left">
+                    <h2>
+                        {{ project.name }}
+                        <span class="tiny-text">({{project.role}})</span>
+                    </h2>
+                    <ul class="list">
+                        <li *ngFor="let item of project.details">
+                            {{item}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="container-right">
+                    <div class="tiny-text">Tech Stack</div>
+                    <ul class="chip-list">
+                        <li class="chip" *ngFor="let skill of project.techStack">
+                            {{ skill }}
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
