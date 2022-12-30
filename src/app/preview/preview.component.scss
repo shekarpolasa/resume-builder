@@ -9,13 +9,17 @@ a {
 }
 
 mat-icon.icon {
-    font-size: 16px;
+    font-size: 1rem;
     color: #555;
     vertical-align: sub;
 }
 
 .section-header {
     border-bottom: 3px solid black;
+}
+
+.header-bar {
+    margin: 40px 0;
 }
 
 .container {
@@ -60,8 +64,9 @@ mat-icon.icon {
 }
 
 .tiny-text {
-    font-size: 16px;
+    font-size: 1rem;
     color: #555;
+    vertical-align: top;
 }
 
 .contact-section {
@@ -89,7 +94,7 @@ mat-icon.icon {
 
     background-color: #9c9c9c;
     width: 2px;
-    height: 70%;
+    height: 69%;
     position: absolute;
     list-style-type: disc;
 }
